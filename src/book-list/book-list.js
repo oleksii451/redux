@@ -1,24 +1,29 @@
-import {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import BookListItem from "../book-list-item/book-list-item";
 import {connect} from "react-redux";
 import withBookstoreService from "../components/hoc/with-bookstore-service";
 import {booksLoaded} from "../actions";
-import {bindActionCreators} from "redux";
+import compose from "../utils/compose";
 
 const BookList = ({books, bookstoreService, booksLoaded}) => {
 
+
+
     useEffect(() => {
-        const data = useCallback(() => bookstoreService.getBooks());
+        const data = bookstoreService.getBooks();
         booksLoaded(data);
-    }, )
+        console.log ( 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' );
+    }, [booksLoaded, bookstoreService])
 
     return (
-
-        <ul>
+            <ul>
             {
                 books.map((book) => {
                     return (
-                        <li key={book.id}><BookListItem book={book} /></li>
+                        <>
+                            <li key={book.id}><BookListItem book={book} /></li>
+
+                        </>
                     )
                 })
             }
@@ -30,9 +35,12 @@ const mapStateToProps = ({books}) => {
     return { books }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    bindActionCreators({booksLoaded}, dispatch);
+const mapDispatchToProps = {
+    booksLoaded
 }
 
 
-export default withBookstoreService()(connect(mapStateToProps, mapDispatchToProps)(BookList))
+export default compose(
+    withBookstoreService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(BookList);

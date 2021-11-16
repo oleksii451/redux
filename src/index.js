@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import store from "./store";
 
-const bookstoreService = new BookstoreService()
+const bookstoreService = new BookstoreService();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,26 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app/App';
+import App from './App/App';
 import ErrorBoundry from "./components/error-boundry/error-boundry";
 import {Provider} from "react-redux";
-import {BookStoreServiceProvider} from "./bookstore-service-context/bookstore-service-context";
+import {BookStoreServiceProvider} from "./bookstore-service-provider/bookstore-service-provider";
 import BookstoreService from "./services/bookstore-service";
-import {Router} from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { BrowserRouter } from "react-router-dom";
 
 import store from "./store";
 
-const history = createBrowserHistory();
-
+const bookstoreService = new BookstoreService()
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
           <ErrorBoundry>
-              <BookStoreServiceProvider value={BookstoreService}>
-                  {/*//<Router history={history}>*/}
+              <BookStoreServiceProvider value={bookstoreService}>
+                  <BrowserRouter >
                       <App />
-                  {/*</Router>*/}
+                  </BrowserRouter>
               </BookStoreServiceProvider>
           </ErrorBoundry>
       </Provider>

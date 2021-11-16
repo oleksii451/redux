@@ -1,7 +1,9 @@
-import {Component} from "react";
 
-export default class BookstoreService extends Component{
+export default class BookstoreService {
     getBooks() {
-        return [];
+        return [
+            {id:1, title: 'Production Ready Microservices', author: 'Susan'},
+            {id:2, title: 'Production not Ready Microservices', author: 'john'}
+        ];
     }
 }

@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import {BookStoreServiceConsumer} from "../../bookstore-service-context/bookstore-service-context";
+import {BookStoreServiceConsumer} from "../../bookstore-service-provider/bookstore-service-provider";
 
 const withBookstoreService = () => (Wrapped) => {
 

@@ -1,14 +1,11 @@
 import React from "react";
 
-import withBookstoreService from "../components/hoc/with-bookstore-service";
 
 import CartPage from "../pages/cart-page";
 import HomePage from '../pages/home-page';
 import { Routes, Route } from "react-router-dom";
 
-const App = ({bookstoreService}) => {
-
-    console.log(bookstoreService.getBooks());
+const App = () => {
 
     return (
         <Routes>
@@ -28,4 +25,4 @@ const App = ({bookstoreService}) => {
 }
 
 
-export default withBookstoreService()(App);
+export default App;

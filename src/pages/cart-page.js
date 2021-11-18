@@ -1,6 +1,12 @@
+import Header from "../components/header/header";
+import Cart from "../components/cart/cart";
+
 const CartPage = () => {
     return (
-        <div>CARTPAGE</div>
+        <>
+        <Header />
+        <Cart />
+        </>
     )
 }
 

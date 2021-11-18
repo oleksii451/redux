@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Spinner from "../components/spinner/spinner";
+import Header from "../components/header/header";
 import React from "react";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import BookList from "../book-list/book-list";
+import BookList from "../book-list/book-list-container";
 
 const HomePage = () => {
 
@@ -16,26 +16,17 @@ const HomePage = () => {
     }));
 
     return (
-    <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-            <Grid item xs={8}>
-                <Item> <Spinner /> </Item>
+        <Box sx={{ flexGrow: 1 }}>
+            <Header/>
+            <Grid container spacing={5}>
+                <Grid item xs={12}>
+                    <Item> this block left blank intentionally </Item>
+                </Grid>
+                <Grid item xs={12}>
+                    <Item> <BookList /> </Item>
+                </Grid>
             </Grid>
-            <Grid item xs={4}>
-                <Item> <BookList /> </Item>
-            </Grid>
-            <Grid item xs={4}>
-                <Item>
-
-
-                </Item>
-            </Grid>
-            <Grid item xs={8}>
-                <Item>xs=8</Item>
-            </Grid>
-        </Grid>
-    </Box>
-
+        </Box>
     )
 
 }
